@@ -13,6 +13,6 @@ typedef struct {
     unsigned int size;
 } StringArray;
 
-StringArray splitStringToArray(char *stringToSplit, char *delimiter);
+StringArray splitStringToArray(const char *stringToSplit, const char *delimiter);
 
 #endif //SPLIT_STRING_TO_ARRAY_H
