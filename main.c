@@ -1,10 +1,23 @@
 #include "splitstringtoarray.h"
+#include "shape.h"
 #include <stdio.h>
 
 int main() {
-    const char *stringToSplit = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet turpis a ultrices interdum. Nulla facilisi. Maecenas vitae ipsum nec mi euismod venenatis eu sed libero. In non erat nunc. Cras vitae augue ac augue mattis sodales at at nibh. Praesent at sollicitudin lacus, a cursus dolor. Etiam congue vel enim id blandit. Nulla sagittis ut elit nec maximus. Cras vulputate sodales egestas. Nullam sodales semper lacinia. Praesent eu eros ac velit consequat sodales. Maecenas vitae placerat nisl, vel aliquet urna. In hac habitasse platea dictumst. Integer nec lectus imperdiet, iaculis velit at, molestie est. Suspendisse euismod dictum sem sit amet mollis. Aenean eu lorem vel tortor tincidunt blandit. Nullam lobortis et nibh in iaculis.";
-    const char *delimiter = ". ";
+    const char *stringToSplit = "caca 10 10 20";
+    const char *delimiter = " ";
     StringArray result = splitStringToArray(stringToSplit, delimiter);
+    switch (stringToTypeSquare(result.array[0])) {
+        case SQUARE:
+            printf("La personne veut un carré, de longueur %s en coordonnées (%s, %s)\n",
+                   result.array[3], result.array[1], result.array[2]);
+            break;
+        case CIRCLE:
+            printf("La personne veut un cercle, de diamètre %s en coordonnées (%s, %s)\n",
+                   result.array[3], result.array[1], result.array[2]);
+            break;
+        case UNKNOWN:
+            printf("Unknow command\n");
+    }
     for (int i = 0; i < result.size; i++) {
         printf("%s\n", result.array[i]);
     }
